@@ -341,12 +341,12 @@ class Prejoin extends Component<Props, State> {
             _onOptionsClick, _setName } = this;
 
         const extraJoinButtons = this._getExtraJoinButtons();
-        let extraButtonsToRender = Object.values<Object>(extraJoinButtons).filter(val =>
+        let extraButtonsToRender = Object.values(extraJoinButtons).filter((val: Object) =>
             !(prejoinConfig.hideExtraJoinButtons || []).includes(val.key)
         );
 
         if (!hasJoinByPhoneButton) {
-            extraButtonsToRender = extraButtonsToRender.filter(btn => btn.key !== 'by-phone');
+            extraButtonsToRender = extraButtonsToRender.filter((btn: Object) => btn.key !== 'by-phone');
         }
         const hasExtraJoinButtons = Boolean(extraButtonsToRender && extraButtonsToRender.length);
         const { showJoinByPhoneButtons, showError } = this.state;
@@ -378,7 +378,7 @@ class Prejoin extends Component<Props, State> {
                     <div className = 'prejoin-preview-dropdown-container'>
                         <InlineDialog
                             content = { hasExtraJoinButtons && <div className = 'prejoin-preview-dropdown-btns'>
-                                {extraButtonsToRender.map(({ key, ...rest }) => (
+                                {extraButtonsToRender.map(({ key, ...rest }: Object) => (
                                     <DropdownButton
                                         key = { key }
                                         { ...rest } />
