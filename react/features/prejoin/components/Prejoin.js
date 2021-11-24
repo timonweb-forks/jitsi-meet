@@ -341,8 +341,8 @@ class Prejoin extends Component<Props, State> {
             _onOptionsClick, _setName } = this;
 
         const extraJoinButtons = this._getExtraJoinButtons();
-        let extraButtonsToRender = Object.values(extraJoinButtons).filter(val =>
-            !prejoinConfig.hideExtraJoinButtons?.includes(val.key)
+        let extraButtonsToRender = Object.values<Object>(extraJoinButtons).filter(val =>
+            !(prejoinConfig.hideExtraJoinButtons || []).includes(val.key)
         );
 
         if (!hasJoinByPhoneButton) {
