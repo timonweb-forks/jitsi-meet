@@ -62,7 +62,7 @@ type Props = {
     /**
      * The prejoin config.
      */
-    prejoinConfig: Object,
+    prejoinConfig?: Object,
 
     /**
      * Whether the name input should be read only or not.
@@ -342,13 +342,13 @@ class Prejoin extends Component<Props, State> {
 
         const extraJoinButtons = this._getExtraJoinButtons();
         let extraButtonsToRender = Object.values(extraJoinButtons).filter((val: Object) =>
-            !(prejoinConfig.hideExtraJoinButtons || []).includes(val.key)
+            !(prejoinConfig?.hideExtraJoinButtons || []).includes(val.key)
         );
 
         if (!hasJoinByPhoneButton) {
             extraButtonsToRender = extraButtonsToRender.filter((btn: Object) => btn.key !== 'by-phone');
         }
-        const hasExtraJoinButtons = Boolean(extraButtonsToRender && extraButtonsToRender.length);
+        const hasExtraJoinButtons = Boolean(extraButtonsToRender.length);
         const { showJoinByPhoneButtons, showError } = this.state;
 
         return (
