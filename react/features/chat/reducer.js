@@ -12,7 +12,7 @@ import {
 } from './actionTypes';
 
 const DEFAULT_STATE = {
-    isOpen: false,
+    isOpen: true,
     isPollsTabFocused: false,
     lastReadMessage: undefined,
     lastReadPoll: undefined,
